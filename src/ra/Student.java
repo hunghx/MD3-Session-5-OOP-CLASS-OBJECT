@@ -1,41 +1,41 @@
 package ra;
 
-import java.util.Calendar;
-import java.util.Date;
-
+// cú pháp khai báo lớp  :  class + [tên Lớp] (đặt viết hoa chữ cái đầu của các từ)
 public class Student {
-    // property , method , các constructor để khởi tạo đối tượng từ lớp
-    // khai báo cá trường, thuộc tính , property
-    private int studentId ;
-    private String studentName;
+    // Khai báo thuộc tính : access_modifier data_type property_name;
+    private String name;
     private int age;
-//     constructor
-    public Student(){
+    private String msv;
+
+
+    // Hàm khởi tạo (constructor)
+
+    public  Student(){
+
+    }
+    public Student(String name, String msv) {
+        this.name= name;
+        this.msv = msv;
+    }
+    public Student(String name, int age, String msv){
+        this.name = name;
+        this.age= age;
+        this.msv =msv;
 
     }
 
-    public Student(int studentId, String studentName, int age){
-        this.studentId = studentId;
-        this.studentName = studentName;
-        this.age = age;
+    @Override
+    public String toString() {
+       return "Name : "+ this.name + " | Age : "+ this.age +" | MSV : "+ this.msv;
+    }
+    // phương thức getter , setter
+
+    public String getName() {
+        return this.name;
     }
 
-    // các method
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
@@ -46,19 +46,11 @@ public class Student {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "studentId=" + studentId +
-                ", studentName='" + studentName + '\'' +
-                ", age=" + age +
-                '}';
+    public String getMsv() {
+        return msv;
     }
-    // phương thức tính năm sinh của đối tượng , bắt buộc phải khởi tạo đối tượng
-    // từ khóa static - phương thức thuộc về lớp , gọi trực tiếp từ Lớp
-    public  int getBornIn(){
-        Date date = new Date();
-        int yearCurrent =  date.getYear();
-        return yearCurrent - this.age;
+
+    public void setMsv(String msv) {
+        this.msv = msv;
     }
 }

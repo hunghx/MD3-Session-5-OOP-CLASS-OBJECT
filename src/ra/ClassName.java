@@ -1,0 +1,5 @@
+package ra;
+
+class ClassName{
+
+}
